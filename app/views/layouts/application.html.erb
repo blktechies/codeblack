@@ -1,15 +1,43 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
-<head>
-  <title>Codeblack</title>
-  <%= stylesheet_link_tag    "application", :media => "all" %>
-  <%= javascript_include_tag "application" %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
-    <%= yield %>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Welcome | Black Techies</title>
+        <%= stylesheet_link_tag    "application", :media => "all" %>
+        <%= javascript_include_tag "application" %>
+        <%= csrf_meta_tags %>
+    </head>
+    <body class="">
+        <div id="navbar" class="navbar navbar-fixed-top">
+            <div class="navbar-inner">
+                <ul class="nav">
+                    <li><a href="/" title="Return to Black Techies home page">Home</a></li>
+                    <li><a href="http://www.blktechies.org" title="Join the Meetup group">Meetup Group</a></li>
+                    <li><a href="/about">About Us</a></li>
+                    <li><a href="/members/list">Members</a></li>
+                    <!-- if logged in -->
+                        <li><a href="/u/">My profile</a></li>
+                        <li><a href="/logout">Log out </a></li>
+                    <!-- if not logged in -->
+                        <li><a href="/register">Register</a></li>
+                        <li><a href="/login">Login</a></li>
+                    <!-- endif  -->
+                </ul>
+            </div>
+        </div>
+        <% if defined? header %>
+        <div id="header">
+            <%= header %>
+        </div>
+        <% end %>
 
-</body>
+        <div id="content" class="{%block content_class %}container-fluid{% endblock %}">
+            <p class="notice"><%= notice %></p>
+            <p class="alert"><%= alert %></p>
+            <%= yield %>
+        </div>
+        <% if defined? footer %>
+        <div id="footer"><%= footer %></div>
+        <% end %>
+    </body>
 </html>
