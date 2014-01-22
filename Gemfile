@@ -20,6 +20,7 @@ group :doc do
 end
 
 gem 'bcrypt-ruby', '~> 3.1.2'
+gem 'devise'
 
 # Use unicorn as the app server
 # gem 'unicorn'
