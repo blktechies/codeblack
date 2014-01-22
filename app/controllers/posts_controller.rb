@@ -23,6 +23,22 @@ class PostsController < ApplicationController
 		@post = Post.find(params[:id])
 	end
 
+	def edit
+		@post = Post.find(params[:id])
+	end
+
+	def update
+		@post = Post.find(params[:id])
+		@post.update(post_params)
+
+		if @post.save
+			flash[:notice] = "Post has been updated."
+			redirect_to @post
+		else
+			flash[:alert] = "Post has not been updated."
+			render 'edit'
+		end
+	end
 	private
 		def post_params
 			params.require(:post).permit(:title, :category, :source, :content)
