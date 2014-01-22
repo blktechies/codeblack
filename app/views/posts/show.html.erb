@@ -1,4 +1,6 @@
 <h2><% title(@post.title, @post.category) %></h2>
+<div id="post">
+	<span id="author">By <%= link_to @post.user.name, user_path(@post.user) %></span>
 <%= link_to "Edit Post", edit_post_path %>
 <%= link_to "Delete Post",
 						post_path(@post),
@@ -7,3 +9,4 @@
 										"Are you sure you want to delete this post?"
 									}
 %>
+</div>

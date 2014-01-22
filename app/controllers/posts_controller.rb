@@ -1,5 +1,7 @@
 class PostsController < ApplicationController
+	before_action :require_signin!, except: [:show, :index]
 	before_action :set_post, only: [:show, :edit, :update, :destroy]
+
 	
 	def index
 		@posts = Post.all
@@ -11,6 +13,7 @@ class PostsController < ApplicationController
 
 	def create
 		@post = Post.new(post_params)
+		@post.user = current_user
 
 		if @post.save
 			flash[:notice] = "Post has been created."

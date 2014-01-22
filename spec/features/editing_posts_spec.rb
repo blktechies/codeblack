@@ -4,11 +4,18 @@
 require 'spec_helper'
 
 feature 'Editing posts' do
+	let!(:user) { FactoryGirl.create(:user) }
+	let!(:post) do
+		post = FactoryGirl.create(:post)
+		post.update(user: user)
+		return post
+	end
+
 	before do
-		FactoryGirl.create(:post, title: "Example Post Title")
+		sign_in_as!(user)
 
 		visit '/'
-		click_link "Example Post Title"
+		click_link post.title
 		click_link "Edit Post"
 	end
 
