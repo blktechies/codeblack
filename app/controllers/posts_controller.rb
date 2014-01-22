@@ -1,4 +1,6 @@
 class PostsController < ApplicationController
+	before_action :set_post, only: [:show, :edit, :update, :destroy]
+	
 	def index
 		@posts = Post.all
 	end
@@ -50,5 +52,12 @@ class PostsController < ApplicationController
 	private
 		def post_params
 			params.require(:post).permit(:title, :category, :source, :content)
+		end
+
+		def set_post
+			@post = Post.find(params[:id])
+		rescue ActiveRecord::RecordNotFound
+			flash[:alert] = "The post you were looking for could not be found."
+			redirect_to posts_path
 		end
 end
