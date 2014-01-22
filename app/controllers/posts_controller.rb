@@ -13,7 +13,8 @@ class PostsController < ApplicationController
 			flash[:notice] = "Post has been created."
 			redirect_to @post
 		else
-			# working on thist still
+			flash[:alert] = "Post has not been created."
+			render 'new'
 		end
 	end
 

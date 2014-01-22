@@ -1,16 +1,2 @@
 <h2>New Content Submission</h2>
-<%= form_for(@post) do |f| %>
-	<p>
-		<%= f.label :title %><br />
-		<%= f.text_field :title %>
-	</p>
-	<p>
-		<%= f.label :category %><br />
-		<%= f.text_field :category %>
-	</p>
-	<p>
-		<%= f.label :source %><br />
-		<%= f.text_field :source %>
-	</p>
-  <%= f.submit %>
-<% end %>
+<%= render "form" %>
