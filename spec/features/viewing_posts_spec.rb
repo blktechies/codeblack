@@ -3,7 +3,7 @@
 
 require 'spec_helper'
 
-feature 'Viewing posts' do
+feature 'Viewing posts feature' do
 
 	scenario 'listing all posts' do
 		user = FactoryGirl.create(:user)
@@ -11,8 +11,9 @@ feature 'Viewing posts' do
 																category: "news", 
 																source: "http://www.example.com/example-post-title")
 		post.update(user: user)
+
 		visit '/'
-		click_link "Example Post Title"
-		expect(page.current_url).to eql(post_url(post))
+
+		expect(page).to have_content(post.title)
 	end
 end

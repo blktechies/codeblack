@@ -35,10 +35,11 @@ class PostsController < ApplicationController
 	def update
 		@post = Post.find(params[:id])
 		@post.update(post_params)
+		@user = User.find(@post.user_id)
 
 		if @post.save
 			flash[:notice] = "Post has been updated."
-			redirect_to @post
+			redirect_to user_path(@user)
 		else
 			flash[:alert] = "Post has not been updated."
 			render 'edit'
@@ -52,6 +53,7 @@ class PostsController < ApplicationController
 		flash[:nostice] = "Post has been destroyed."
 		redirect_to posts_path
 	end
+
 	private
 		def post_params
 			params.require(:post).permit(:title, :category, :source, :content)
@@ -63,4 +65,10 @@ class PostsController < ApplicationController
 			flash[:alert] = "The post you were looking for could not be found."
 			redirect_to posts_path
 		end
+
+		# def get_user
+		# 	@user = User.find(id).first
+		# 	return @user
+		# end
+
 end

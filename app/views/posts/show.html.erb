@@ -1,12 +1,5 @@
 <h2><% title(@post.title, @post.category) %></h2>
 <div id="post">
+	<h3><%= link_to @post.title, @post.source %></h3>
 	<span id="author">By <%= link_to @post.user.name, user_path(@post.user) %></span>
-<%= link_to "Edit Post", edit_post_path %>
-<%= link_to "Delete Post",
-						post_path(@post),
-						method: :delete,
-						data: {confirm:
-										"Are you sure you want to delete this post?"
-									}
-%>
 </div>

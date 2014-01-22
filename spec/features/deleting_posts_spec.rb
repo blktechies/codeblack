@@ -12,9 +12,7 @@ feature "Deleting posts" do
 
   before do
   	sign_in_as!(user)
-  	visit "/"
-  	click_link post.title
-
+  	visit user_path(user)
   end
 
   scenario "Deleting a post" do

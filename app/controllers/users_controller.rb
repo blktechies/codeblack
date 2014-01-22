@@ -16,6 +16,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @posts = Post.where(:user_id => @user.id)
   end
 
   def edit
@@ -37,6 +38,6 @@ class UsersController < ApplicationController
 
   private
   	def user_params
-  		params.require(:user).permit(:name, :password, :password_confirmation)
+  		params.require(:user).permit(:name, :email, :password, :password_confirmation)
   	end
 end

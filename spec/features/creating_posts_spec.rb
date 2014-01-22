@@ -3,7 +3,7 @@
 
 require 'spec_helper'
 
-feature 'Creating posts' do
+feature 'Creating posts feature' do
 	before do
 		post = FactoryGirl.create(:post)
 		user = FactoryGirl.create(:user)

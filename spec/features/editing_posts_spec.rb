@@ -14,9 +14,8 @@ feature 'Editing posts' do
 	before do
 		sign_in_as!(user)
 
-		visit '/'
-		click_link post.title
-		click_link "Edit Post"
+		visit user_path(user.id)
+		click_link 'Edit Post'
 	end
 
 	scenario 'updating a post' do

@@ -20,8 +20,12 @@
 <% end %>
 <nav> 
   <ul>
+    <% if current_user %>
+    <li>Signed in as <%= link_to current_user.name, user_path(current_user) %></li>
+    <% else %>
     <li><%= link_to "Sign up", new_user_path %></li>
     <li><%= link_to "Sign in", signin_path %></li>
+    <% end %>
   </ul>
 </nav>
 <%= yield %>
