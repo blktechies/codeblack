@@ -2,17 +2,13 @@
 <html>
 <head>
   <title>Codeblack</title>
-  <%= stylesheet_link_tag    "application", :media => "all" %>
-  <%= javascript_include_tag "application" %>
+  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-	<div id="logo">
-		<%= image_tag("blktech.gif", alt: "black techies logo")	%>
-	</div>
-    <!--<p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p> -->
-    <%= yield %>
+
+<%= yield %>
 
 </body>
 </html>

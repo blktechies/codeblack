@@ -1,4 +1,8 @@
-codeblack
-=========
+### codeblack
+=====================
+Black Techies website, in rails4
 
-Black Techies website
+to runs tests:
+```
+$ ./bin/rspec
+```
