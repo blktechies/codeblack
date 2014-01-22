@@ -29,7 +29,11 @@ gem 'bcrypt-ruby', '~> 3.1.2'
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
-# 
+
+gem 'omniauth-twitter',
+ 	:git => 'https://github.com/arunagw/omniauth-twitter.git'
+
+
 group :test, :development do
   gem 'rspec-rails', "~> 2.14"
 end
